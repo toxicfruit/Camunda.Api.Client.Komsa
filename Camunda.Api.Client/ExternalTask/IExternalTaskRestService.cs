@@ -8,7 +8,7 @@ namespace Camunda.Api.Client.ExternalTask
     internal interface IExternalTaskRestService
     {
         [Get("/external-task/{externalTaskId}")]
-        Task<ExternalTaskInfo> Get(string externalTaskId);
+        Task<ExternalTaskInfo> Get(string externalTaskId, CancellationToken cancellationToken = default);
 
         [Post("/external-task")]
         Task<List<ExternalTaskInfo>> GetList([Body] ExternalTaskQuery query, int? firstResult, int? maxResults, CancellationToken cancellationToken = default);
